@@ -21,7 +21,7 @@ func raycast_card_check():
 	params.collision_mask = COLLISON_MASK_CARD
 	var result = space_state.intersect_point(params)
 	if result:
-		var body: Node2D = result[0].collider.get_parent()
+		var body = result[0].collider.get_parent()
 		if body.is_in_group('Card'):
 			return body
 			
