@@ -8,3 +8,4 @@ Game Repo for Wild Game Jam 84. Theme for the game jam is "Critters
 ## Card Info:
 - Base Card Size: 32 X 48
 - Critter Part Size: 32 X 32
+- Leg Section Size: 16 X 32
