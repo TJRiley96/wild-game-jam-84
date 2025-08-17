@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardInfo" load_steps=3 format=3 uid="uid://q3utxrfn2qau"]
+
+[ext_resource type="Texture2D" uid="uid://ccg45poktdktq" path="res://Assets/TestSprites/bug_leg_section_1_01.png" id="1_ich50"]
+[ext_resource type="Script" uid="uid://dvlwon4usgkm2" path="res://Scripts/Resources/card_info.gd" id="1_vt4cw"]
+
+[resource]
+script = ExtResource("1_vt4cw")
+name = &"Default Leg"
+part_image = ExtResource("1_ich50")
+health = 2
+strength = 0
+speed = 2
+thorns = 0
+armor = 2
+attack_speed = 1
+metadata/_custom_type_script = "uid://dvlwon4usgkm2"

@@ -1,12 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://d0ji5uie23cun"]
+[gd_scene load_steps=5 format=4 uid="uid://d0ji5uie23cun"]
 
 [ext_resource type="PackedScene" uid="uid://b4qup25f76h1i" path="res://Scenes/Card/card.tscn" id="1_6tn7u"]
 [ext_resource type="TileSet" uid="uid://dpmindsr0rnpf" path="res://Assets/Tiles/TileSets/batting_center_tile_set.tres" id="1_ed1gj"]
 [ext_resource type="Script" uid="uid://du3cfwf8qrwmp" path="res://Scripts/card_manager.gd" id="2_lhlef"]
-[ext_resource type="Script" uid="uid://bhejdl8wp21rw" path="res://Scripts/critter_creator.gd" id="4_yqe6s"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_psv01"]
-size = Vector2(737, 348)
+[ext_resource type="PackedScene" uid="uid://b5j2dkg26ggl6" path="res://Scenes/critter_creator.tscn" id="4_yqe6s"]
 
 [node name="CardMenu" type="Control"]
 layout_mode = 3
@@ -28,16 +25,5 @@ script = ExtResource("2_lhlef")
 
 [node name="Card" parent="CardManager" instance=ExtResource("1_6tn7u")]
 
-[node name="CritterCreator" type="Area2D" parent="."]
-z_index = -4
-position = Vector2(432, 117)
-script = ExtResource("4_yqe6s")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CritterCreator"]
-position = Vector2(178.5, 130)
-shape = SubResource("RectangleShape2D_psv01")
-
-[connection signal="area_entered" from="CritterCreator" to="CritterCreator" method="_on_area_entered"]
-[connection signal="area_exited" from="CritterCreator" to="CritterCreator" method="_on_area_exited"]
-[connection signal="body_entered" from="CritterCreator" to="CritterCreator" method="_on_body_entered"]
-[connection signal="body_exited" from="CritterCreator" to="CritterCreator" method="_on_body_exited"]
+[node name="CritterCreator" parent="." instance=ExtResource("4_yqe6s")]
+position = Vector2(284, 233)

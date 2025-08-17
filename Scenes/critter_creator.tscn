@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=4 uid="uid://b5j2dkg26ggl6"]
+
+[ext_resource type="Texture2D" uid="uid://dguwvlq310316" path="res://Assets/Tiles/TileMaps/critter_creator_tiles.png" id="1_gh04c"]
+[ext_resource type="Script" uid="uid://cxnp8ajv26qxk" path="res://Scripts/critter_creator.gd" id="1_r1tys"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bse2m"]
+texture = ExtResource("1_gh04c")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_h015y"]
+sources/0 = SubResource("TileSetAtlasSource_bse2m")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_psv01"]
+size = Vector2(381, 376)
+
+[node name="CritterCreator" type="Node2D"]
+script = ExtResource("1_r1tys")
+
+[node name="CreatorBG" type="TileMapLayer" parent="."]
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD8//z/AAAAAAAAAAADAPz/AAACAAAAAAADAAIAAAACAAEAAAD8/wIAAAAAAAEAAAD8//3/AAAAAAEAAAD8//7/AAAAAAEAAAD8////AAAAAAEAAAD8/wAAAAAAAAEAAAD8/wEAAAAAAAEAAAD9/wIAAAABAAEAAAD+/wIAAAABAAEAAAD//wIAAAABAAEAAAAAAAIAAAABAAEAAAABAAIAAAABAAEAAAACAAIAAAABAAEAAAADAP3/AAACAAEAAAADAP7/AAACAAEAAAADAP//AAACAAEAAAADAAAAAAACAAEAAAADAAEAAAACAAEAAAD9//z/AAABAAAAAAD+//z/AAABAAAAAAD///z/AAABAAAAAAAAAPz/AAABAAAAAAABAPz/AAABAAAAAAACAPz/AAABAAAAAAD9//3/AAABAAEAAAD9//7/AAABAAEAAAD9////AAABAAEAAAD9/wAAAAABAAEAAAD9/wEAAAABAAEAAAD+//3/AAABAAEAAAD+//7/AAABAAEAAAD+////AAABAAEAAAD+/wAAAAABAAEAAAD+/wEAAAABAAEAAAD///3/AAABAAEAAAD///7/AAABAAEAAAD/////AAABAAEAAAD//wAAAAABAAEAAAD//wEAAAABAAEAAAAAAP3/AAABAAEAAAAAAP7/AAABAAEAAAAAAP//AAABAAEAAAAAAAAAAAABAAEAAAAAAAEAAAABAAEAAAABAP3/AAABAAEAAAABAP7/AAABAAEAAAABAP//AAABAAEAAAABAAAAAAABAAEAAAABAAEAAAABAAEAAAACAP3/AAABAAEAAAACAP7/AAABAAEAAAACAP//AAABAAEAAAACAAAAAAABAAEAAAACAAEAAAABAAEAAAD8/wMAAAAAAAIAAAADAAMAAAACAAIAAAD9/wMAAAABAAIAAAD+/wMAAAABAAIAAAD//wMAAAABAAIAAAAAAAMAAAABAAIAAAABAAMAAAABAAIAAAACAAMAAAABAAIAAAA=")
+tile_set = SubResource("TileSet_h015y")
+
+[node name="CreatorArea" type="Area2D" parent="."]
+z_index = -4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CreatorArea"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_psv01")
+
+[connection signal="area_entered" from="CreatorArea" to="." method="_on_creator_area_entered"]
+[connection signal="area_exited" from="CreatorArea" to="." method="_on_creator_area_exited"]
+[connection signal="body_entered" from="CreatorArea" to="CreatorArea" method="_on_body_entered"]
+[connection signal="body_exited" from="CreatorArea" to="CreatorArea" method="_on_body_exited"]

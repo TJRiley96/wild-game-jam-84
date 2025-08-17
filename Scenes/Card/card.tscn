@@ -1,14 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4qup25f76h1i"]
+[gd_scene load_steps=8 format=3 uid="uid://b4qup25f76h1i"]
 
 [ext_resource type="Script" uid="uid://bwwdfo2gdr4mm" path="res://Scenes/Card/Scripts/card.gd" id="1_ac5pp"]
 [ext_resource type="Texture2D" uid="uid://470ll1olc0lm" path="res://Scenes/Card/Assets/Card_Front_01.png" id="1_g0nif"]
-[ext_resource type="Texture2D" uid="uid://d2q17w3j2gaac" path="res://Assets/TestSprites/Test_Leg.png" id="2_ac5pp"]
+[ext_resource type="Resource" uid="uid://i87qd2m3np22" path="res://Scripts/Resources/card_head_default.tres" id="2_yw1pg"]
+[ext_resource type="FontFile" uid="uid://ciqtt8n860nnr" path="res://Assets/Fonts/PixelifySans-Regular.ttf" id="4_c0g18"]
+[ext_resource type="Texture2D" uid="uid://40tj5kgdkdnn" path="res://Assets/TestSprites/bug_head_01.png" id="4_r5dc4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0nif"]
 size = Vector2(32, 48)
 
+[sub_resource type="LabelSettings" id="LabelSettings_yw1pg"]
+font = ExtResource("4_c0g18")
+font_size = 14
+shadow_size = 0
+
 [node name="Card" type="Node2D" groups=["Card"]]
+z_index = 2
 script = ExtResource("1_ac5pp")
+card_info = ExtResource("2_yw1pg")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -16,9 +25,24 @@ script = ExtResource("1_ac5pp")
 shape = SubResource("RectangleShape2D_g0nif")
 
 [node name="BG" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
 texture = ExtResource("1_g0nif")
 
 [node name="SpritePart" type="Sprite2D" parent="."]
-position = Vector2(0, -8)
-scale = Vector2(0.9, 0.9)
-texture = ExtResource("2_ac5pp")
+position = Vector2(0, -11)
+rotation = 0.785398
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_r5dc4")
+
+[node name="PartName" type="Label" parent="."]
+texture_filter = 1
+texture_repeat = 1
+offset_left = -40.0
+offset_top = -66.0
+offset_right = 40.0
+offset_bottom = -49.0
+text = "Default Head"
+label_settings = SubResource("LabelSettings_yw1pg")
+horizontal_alignment = 1
+uppercase = true
+visible_ratio = -0.0909091

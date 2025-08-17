@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://j0k5gp61bakf"]
+[gd_scene load_steps=6 format=3 uid="uid://j0k5gp61bakf"]
 
 [ext_resource type="Script" uid="uid://kpowjvm0cnu" path="res://Scripts/character_bug.gd" id="1_46hhl"]
 [ext_resource type="Texture2D" uid="uid://cocih2x2lbx8x" path="res://Assets/TestSprites/bug_body_01.png" id="1_r5yy1"]
 [ext_resource type="Texture2D" uid="uid://ccg45poktdktq" path="res://Assets/TestSprites/bug_leg_section_1_01.png" id="2_46hhl"]
-[ext_resource type="Resource" uid="uid://q3utxrfn2qau" path="res://Scripts/Resources/card_example.tres" id="2_hh08e"]
 [ext_resource type="Texture2D" uid="uid://40tj5kgdkdnn" path="res://Assets/TestSprites/bug_head_01.png" id="3_hh08e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r5yy1"]
@@ -11,10 +10,6 @@ radius = 23.1948
 
 [node name="CharacterBug" type="CharacterBody2D"]
 script = ExtResource("1_46hhl")
-top_left_card = ExtResource("2_hh08e")
-top_right_card = ExtResource("2_hh08e")
-bot_left_card = ExtResource("2_hh08e")
-bot_right_card = ExtResource("2_hh08e")
 
 [node name="Parts" type="Node2D" parent="."]
 
