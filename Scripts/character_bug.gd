@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-
-const SPEED = 300.0
+@export var speed: float = 300.0
 const JUMP_VELOCITY = -400.0
 
 const RIGHT_LEG_MIN_RANGE: float = -20.0
@@ -58,10 +57,10 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_vector("move_left", "move_right", "move_foward", "move_backward")
 	if direction:
-		velocity = direction * SPEED
+		velocity = direction * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.y= move_toward(velocity.y, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.y= move_toward(velocity.y, 0, speed)
 		
 	if velocity:
 		print("Forward Velocity")

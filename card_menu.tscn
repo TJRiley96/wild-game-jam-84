@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=4 uid="uid://d0ji5uie23cun"]
+[gd_scene load_steps=7 format=4 uid="uid://d0ji5uie23cun"]
 
 [ext_resource type="PackedScene" uid="uid://b4qup25f76h1i" path="res://Scenes/Card/card.tscn" id="1_6tn7u"]
 [ext_resource type="TileSet" uid="uid://dpmindsr0rnpf" path="res://Assets/Tiles/TileSets/batting_center_tile_set.tres" id="1_ed1gj"]
+[ext_resource type="FontFile" uid="uid://ciqtt8n860nnr" path="res://Assets/Fonts/PixelifySans-Regular.ttf" id="1_h4xtq"]
 [ext_resource type="Script" uid="uid://du3cfwf8qrwmp" path="res://Scripts/card_manager.gd" id="2_lhlef"]
-[ext_resource type="PackedScene" uid="uid://b5j2dkg26ggl6" path="res://Scenes/critter_creator.tscn" id="4_yqe6s"]
+[ext_resource type="PackedScene" uid="uid://67oja4cgb0nu" path="res://Scenes/critter_creator.tscn" id="4_yqe6s"]
+[ext_resource type="Texture2D" uid="uid://blmxjv54moxp8" path="res://Assets/TestSprites/Card_Back.png" id="6_h4xtq"]
 
 [node name="CardMenu" type="Control"]
 layout_mode = 3
@@ -13,6 +15,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 402.0
+offset_right = 152.0
+offset_bottom = 446.0
+theme_override_fonts/font = ExtResource("1_h4xtq")
+theme_override_font_sizes/font_size = 29
+text = "Get Card
+"
+
 [node name="Background" type="TileMapLayer" parent="."]
 visible = false
 scale = Vector2(3, 3)
@@ -20,10 +33,31 @@ tile_map_data = PackedByteArray("AADy//j/AAAMAAIAAADy//n/AAAMAAMAAADy//r/AAAMAAQ
 tile_set = ExtResource("1_ed1gj")
 
 [node name="CardManager" type="Node2D" parent="."]
-position = Vector2(612, 553)
+position = Vector2(-5, -5)
 script = ExtResource("2_lhlef")
 
 [node name="Card" parent="CardManager" instance=ExtResource("1_6tn7u")]
+position = Vector2(132, 229)
+
+[node name="CardRow" type="Node2D" parent="CardManager"]
+
+[node name="CardPile" type="Node2D" parent="CardManager"]
+position = Vector2(70, 540)
+
+[node name="CardBack" type="Sprite2D" parent="CardManager/CardPile"]
+position = Vector2(1.00006, -12)
+scale = Vector2(3, 3)
+texture = ExtResource("6_h4xtq")
+
+[node name="CardBack2" type="Sprite2D" parent="CardManager/CardPile"]
+position = Vector2(1, 4)
+scale = Vector2(3, 3)
+texture = ExtResource("6_h4xtq")
+
+[node name="CardBack3" type="Sprite2D" parent="CardManager/CardPile"]
+position = Vector2(1.00006, 20)
+scale = Vector2(3, 3)
+texture = ExtResource("6_h4xtq")
 
 [node name="CritterCreator" parent="." instance=ExtResource("4_yqe6s")]
-position = Vector2(284, 233)
+position = Vector2(573, 207)

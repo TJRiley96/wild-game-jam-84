@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://b5j2dkg26ggl6"]
+[gd_scene load_steps=6 format=4 uid="uid://67oja4cgb0nu"]
 
 [ext_resource type="Texture2D" uid="uid://dguwvlq310316" path="res://Assets/Tiles/TileMaps/critter_creator_tiles.png" id="1_gh04c"]
 [ext_resource type="Script" uid="uid://cxnp8ajv26qxk" path="res://Scripts/critter_creator.gd" id="1_r1tys"]
@@ -31,6 +31,7 @@ tile_set = SubResource("TileSet_h015y")
 
 [node name="CreatorArea" type="Area2D" parent="."]
 z_index = -4
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CreatorArea"]
 position = Vector2(-0.5, 0)

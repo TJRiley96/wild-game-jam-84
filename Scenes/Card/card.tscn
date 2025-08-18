@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://40tj5kgdkdnn" path="res://Assets/TestSprites/bug_head_01.png" id="4_r5dc4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0nif"]
-size = Vector2(32, 48)
+size = Vector2(74, 120)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yw1pg"]
 font = ExtResource("4_c0g18")
@@ -22,6 +22,7 @@ card_info = ExtResource("2_yw1pg")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_g0nif")
 
 [node name="BG" type="Sprite2D" parent="."]
@@ -45,4 +46,5 @@ text = "Default Head"
 label_settings = SubResource("LabelSettings_yw1pg")
 horizontal_alignment = 1
 uppercase = true
-visible_ratio = -0.0909091
+visible_characters = 0
+visible_ratio = 0.0
