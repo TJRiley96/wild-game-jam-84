@@ -3,8 +3,9 @@ class_name CardInfo extends Resource
 
 @export var name: StringName
 
-@export_category("Card Images")
+@export_category("Card General")
 @export var part_image: Texture
+@export var type: Constants.CARD_TYPES = Constants.CARD_TYPES.NONE
 
 @export_category("Card Stats")
 @export_range(-5, 5, 1) var health = 0

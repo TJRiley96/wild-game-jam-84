@@ -1,0 +1,9 @@
+
+enum CARD_TYPES{
+	NONE,
+	BODY,
+	LEG,
+	HEAD,
+	WEAPON,
+	ATTACK
+} 

@@ -15,6 +15,10 @@ run/main_scene="uid://b7s457l7u36xc"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Constants="*res://Scripts/constants.gd"
+
 [global_group]
 
 Card="Basic Card Object"
