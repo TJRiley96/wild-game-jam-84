@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_r6c8o")
 name = &"Default Head"
+type = 0
 part_image = ExtResource("1_uftk1")
 health = 5
 strength = 0
