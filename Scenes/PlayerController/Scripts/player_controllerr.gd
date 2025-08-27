@@ -26,6 +26,11 @@ func _ready() -> void:
 	for leg in right_legs:
 		leg.rotation_degrees = init_rot
 		init_rot += 5
+		
+func _process(delta: float) -> void:
+	
+	if Input.is_action_just_pressed("esc"):
+		get_tree().quit()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

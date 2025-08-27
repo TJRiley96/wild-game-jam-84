@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CardInfo" load_steps=3 format=3 uid="uid://q3utxrfn2qau"]
 
-[ext_resource type="Texture2D" uid="uid://ccg45poktdktq" path="res://Assets/TestSprites/bug_leg_section_1_01.png" id="1_ich50"]
+[ext_resource type="Texture2D" uid="uid://ccg45poktdktq" path="res://Assets/Sprites/Leg/bug_leg_01_v1.png" id="1_ich50"]
 [ext_resource type="Script" uid="uid://dvlwon4usgkm2" path="res://Scripts/Resources/card_info.gd" id="1_vt4cw"]
 
 [resource]

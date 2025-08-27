@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://470ll1olc0lm"
-path="res://.godot/imported/Card_Front_01.png-23ca2917bf5f7facdbe571a6c86fe7b1.ctex"
+uid="uid://ccg45poktdktq"
+path="res://.godot/imported/bug_leg_01_v1.png-0fdfd9912117e4e2382a684a89677ad0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Card/Assets/Card_Front_01.png"
-dest_files=["res://.godot/imported/Card_Front_01.png-23ca2917bf5f7facdbe571a6c86fe7b1.ctex"]
+source_file="res://Assets/Sprites/Leg/bug_leg_01_v1.png"
+dest_files=["res://.godot/imported/bug_leg_01_v1.png-0fdfd9912117e4e2382a684a89677ad0.ctex"]
 
 [params]
 

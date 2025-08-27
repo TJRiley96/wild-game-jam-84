@@ -1,56 +1,153 @@
-[gd_scene load_steps=7 format=3 uid="uid://j0k5gp61bakf"]
+[gd_scene load_steps=10 format=3 uid="uid://j0k5gp61bakf"]
 
 [ext_resource type="Script" uid="uid://kpowjvm0cnu" path="res://Scripts/character_bug.gd" id="1_46hhl"]
-[ext_resource type="Texture2D" uid="uid://cocih2x2lbx8x" path="res://Assets/TestSprites/bug_body_01.png" id="1_r5yy1"]
-[ext_resource type="Texture2D" uid="uid://ccg45poktdktq" path="res://Assets/TestSprites/bug_leg_section_1_01.png" id="2_46hhl"]
-[ext_resource type="Resource" uid="uid://q3utxrfn2qau" path="res://Scripts/Resources/card_example.tres" id="2_hh08e"]
-[ext_resource type="Texture2D" uid="uid://40tj5kgdkdnn" path="res://Assets/TestSprites/bug_head_01.png" id="3_hh08e"]
+[ext_resource type="Texture2D" uid="uid://ccg45poktdktq" path="res://Assets/Sprites/Leg/bug_leg_01_v1.png" id="2_46hhl"]
+[ext_resource type="Texture2D" uid="uid://chjaakaxahr7i" path="res://Assets/Sprites/Misc/part_area_01.png" id="3_ewhml"]
+[ext_resource type="Texture2D" uid="uid://40tj5kgdkdnn" path="res://Assets/Sprites/Head/bug_head_01.png" id="3_hh08e"]
+[ext_resource type="Texture2D" uid="uid://b21yvpeo58j8u" path="res://Assets/Sprites/Body/bug_body_01_v2.png" id="4_ewhml"]
+[ext_resource type="Texture2D" uid="uid://bwqhqqnlgxpfk" path="res://Assets/Sprites/Leg/bug_leg_02_v1.png" id="5_jqsrq"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_r5yy1"]
-radius = 23.1948
+[sub_resource type="CircleShape2D" id="CircleShape2D_hh08e"]
 
-[node name="CharacterBug" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ewhml"]
+radius = 15.0
+height = 58.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jqsrq"]
+
+[node name="CharacterBug" type="Node2D"]
 script = ExtResource("1_46hhl")
-top_left_card = ExtResource("2_hh08e")
-top_right_card = ExtResource("2_hh08e")
-bot_left_card = ExtResource("2_hh08e")
-bot_right_card = ExtResource("2_hh08e")
 
 [node name="Parts" type="Node2D" parent="."]
 
 [node name="Head" type="Sprite2D" parent="Parts"]
-position = Vector2(0, -28)
+z_index = 1
+position = Vector2(0, -24)
 texture = ExtResource("3_hh08e")
+offset = Vector2(0, -16)
+
+[node name="HeadArea" type="Area2D" parent="Parts/Head"]
+position = Vector2(0, -20)
+
+[node name="Selector" type="Sprite2D" parent="Parts/Head/HeadArea"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_ewhml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Head/HeadArea"]
+shape = SubResource("CircleShape2D_hh08e")
 
 [node name="Body" type="Sprite2D" parent="Parts"]
 z_index = 1
-texture = ExtResource("1_r5yy1")
+texture = ExtResource("4_ewhml")
 
-[node name="TopLegLeft" type="Sprite2D" parent="Parts"]
+[node name="BodyArea" type="Area2D" parent="Parts/Body"]
+
+[node name="Selector" type="Sprite2D" parent="Parts/Body/BodyArea"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_ewhml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Body/BodyArea"]
+shape = SubResource("CapsuleShape2D_ewhml")
+
+[node name="LeftLeg1" type="Sprite2D" parent="Parts"]
 position = Vector2(-16, -16)
 rotation = 2.35619
+scale = Vector2(1.04312, 1)
+texture = ExtResource("5_jqsrq")
+offset = Vector2(0, 16)
+
+[node name="LL1Area" type="Area2D" parent="Parts/LeftLeg1"]
+position = Vector2(0, 32)
+
+[node name="Selector" type="Sprite2D" parent="Parts/LeftLeg1/LL1Area"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_ewhml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/LeftLeg1/LL1Area"]
+shape = SubResource("CircleShape2D_jqsrq")
+
+[node name="LeftLeg2" type="Sprite2D" parent="Parts"]
+position = Vector2(-16, 0)
+rotation = 1.5708
 texture = ExtResource("2_46hhl")
 offset = Vector2(0, 16)
 
-[node name="TopLegRight" type="Sprite2D" parent="Parts"]
+[node name="LL2Area" type="Area2D" parent="Parts/LeftLeg2"]
+position = Vector2(0, 32)
+
+[node name="Selector" type="Sprite2D" parent="Parts/LeftLeg2/LL2Area"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_ewhml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/LeftLeg2/LL2Area"]
+shape = SubResource("CircleShape2D_jqsrq")
+
+[node name="LeftLeg3" type="Sprite2D" parent="Parts"]
+position = Vector2(-12, 16)
+rotation = 0.785398
+scale = Vector2(0.998325, 1.00453)
+texture = ExtResource("5_jqsrq")
+offset = Vector2(0, 16)
+
+[node name="LL3Area" type="Area2D" parent="Parts/LeftLeg3"]
+position = Vector2(0, 32)
+
+[node name="Selector" type="Sprite2D" parent="Parts/LeftLeg3/LL3Area"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_ewhml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/LeftLeg3/LL3Area"]
+shape = SubResource("CircleShape2D_jqsrq")
+
+[node name="RightLeg1" type="Sprite2D" parent="Parts"]
 position = Vector2(16, -16)
 rotation = -2.35619
 texture = ExtResource("2_46hhl")
 offset = Vector2(0, 16)
 flip_h = true
 
-[node name="BotLegLeft" type="Sprite2D" parent="Parts"]
-position = Vector2(-16, 16)
-rotation = 0.785398
-texture = ExtResource("2_46hhl")
-offset = Vector2(0, 16)
+[node name="RL1Area" type="Area2D" parent="Parts/RightLeg1"]
+position = Vector2(0, 32)
 
-[node name="BotLegRight" type="Sprite2D" parent="Parts"]
-position = Vector2(16, 16)
-rotation = -0.785398
-texture = ExtResource("2_46hhl")
+[node name="Selector" type="Sprite2D" parent="Parts/RightLeg1/RL1Area"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_ewhml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/RightLeg1/RL1Area"]
+shape = SubResource("CircleShape2D_jqsrq")
+
+[node name="RightLeg2" type="Sprite2D" parent="Parts"]
+position = Vector2(16, 0)
+rotation = -1.5708
+texture = ExtResource("5_jqsrq")
 offset = Vector2(0, 16)
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_r5yy1")
+[node name="RL2Area" type="Area2D" parent="Parts/RightLeg2"]
+position = Vector2(0, 32)
+
+[node name="Selector" type="Sprite2D" parent="Parts/RightLeg2/RL2Area"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_ewhml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/RightLeg2/RL2Area"]
+shape = SubResource("CircleShape2D_jqsrq")
+
+[node name="RightLeg3" type="Sprite2D" parent="Parts"]
+position = Vector2(12, 16)
+rotation = -0.785398
+texture = ExtResource("5_jqsrq")
+offset = Vector2(0, 16)
+flip_h = true
+
+[node name="RL3Area" type="Area2D" parent="Parts/RightLeg3"]
+position = Vector2(0, 32)
+
+[node name="Selector" type="Sprite2D" parent="Parts/RightLeg3/RL3Area"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_ewhml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/RightLeg3/RL3Area"]
+shape = SubResource("CircleShape2D_jqsrq")
+
+[connection signal="area_entered" from="Parts/Head/HeadArea" to="." method="_on_part_area_entered"]

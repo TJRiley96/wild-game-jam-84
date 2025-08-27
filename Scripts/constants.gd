@@ -1,3 +1,4 @@
+extends Node
 
 enum CARD_TYPES{
 	NONE,

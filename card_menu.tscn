@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://ciqtt8n860nnr" path="res://Assets/Fonts/PixelifySans-Regular.ttf" id="1_h4xtq"]
 [ext_resource type="Script" uid="uid://du3cfwf8qrwmp" path="res://Scripts/card_manager.gd" id="2_lhlef"]
 [ext_resource type="PackedScene" uid="uid://67oja4cgb0nu" path="res://Scenes/critter_creator.tscn" id="4_yqe6s"]
-[ext_resource type="Texture2D" uid="uid://blmxjv54moxp8" path="res://Assets/TestSprites/Card_Back.png" id="6_h4xtq"]
+[ext_resource type="Texture2D" uid="uid://blmxjv54moxp8" path="res://Assets/Sprites/Card/Backs/Card_Back.png" id="6_h4xtq"]
 
 [node name="CardMenu" type="Control"]
 layout_mode = 3
