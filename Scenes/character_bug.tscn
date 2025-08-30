@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://j0k5gp61bakf"]
+[gd_scene load_steps=9 format=3 uid="uid://j0k5gp61bakf"]
 
 [ext_resource type="Script" uid="uid://kpowjvm0cnu" path="res://Scripts/character_bug.gd" id="1_46hhl"]
 [ext_resource type="Texture2D" uid="uid://ccg45poktdktq" path="res://Assets/Sprites/Leg/bug_leg_01_v1.png" id="2_46hhl"]
 [ext_resource type="Texture2D" uid="uid://chjaakaxahr7i" path="res://Assets/Sprites/Misc/part_area_01.png" id="3_ewhml"]
-[ext_resource type="Texture2D" uid="uid://40tj5kgdkdnn" path="res://Assets/Sprites/Head/bug_head_01.png" id="3_hh08e"]
 [ext_resource type="Texture2D" uid="uid://b21yvpeo58j8u" path="res://Assets/Sprites/Body/bug_body_01_v2.png" id="4_ewhml"]
 [ext_resource type="Texture2D" uid="uid://bwqhqqnlgxpfk" path="res://Assets/Sprites/Leg/bug_leg_02_v1.png" id="5_jqsrq"]
 
@@ -23,11 +22,11 @@ script = ExtResource("1_46hhl")
 [node name="Head" type="Sprite2D" parent="Parts"]
 z_index = 1
 position = Vector2(0, -24)
-texture = ExtResource("3_hh08e")
 offset = Vector2(0, -16)
 
 [node name="HeadArea" type="Area2D" parent="Parts/Head"]
 position = Vector2(0, -20)
+collision_layer = 0
 
 [node name="Selector" type="Sprite2D" parent="Parts/Head/HeadArea"]
 scale = Vector2(0.6, 0.6)
@@ -150,4 +149,5 @@ texture = ExtResource("3_ewhml")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/RightLeg3/RL3Area"]
 shape = SubResource("CircleShape2D_jqsrq")
 
-[connection signal="area_entered" from="Parts/Head/HeadArea" to="." method="_on_part_area_entered"]
+[connection signal="area_entered" from="Parts/Head/HeadArea" to="." method="_on_head_area_entered"]
+[connection signal="area_exited" from="Parts/Head/HeadArea" to="." method="_on_head_area_exited"]

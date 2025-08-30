@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4k6uvqdowkk0"]
+
+[ext_resource type="PackedScene" uid="uid://j0k5gp61bakf" path="res://Scenes/character_bug.tscn" id="1_g54tn"]
+[ext_resource type="PackedScene" uid="uid://b4qup25f76h1i" path="res://Scenes/Card/card.tscn" id="2_dc6q1"]
+[ext_resource type="Script" uid="uid://du3cfwf8qrwmp" path="res://Scripts/card_manager.gd" id="2_q5m1e"]
+
+[node name="TestScene" type="Node2D"]
+
+[node name="CharacterBug" parent="." instance=ExtResource("1_g54tn")]
+position = Vector2(518, 287)
+
+[node name="CardManager" type="Node2D" parent="."]
+script = ExtResource("2_q5m1e")
+
+[node name="Card" parent="CardManager" instance=ExtResource("2_dc6q1")]
+position = Vector2(240, 444)

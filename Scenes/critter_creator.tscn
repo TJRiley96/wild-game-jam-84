@@ -33,6 +33,7 @@ tile_map_data = PackedByteArray("AAD8//z/AAAAAAAAAAADAPz/AAACAAAAAAADAAIAAAACAAE
 tile_set = SubResource("TileSet_h015y")
 
 [node name="BodyArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BodyArea"]
 shape = SubResource("CircleShape2D_gh04c")

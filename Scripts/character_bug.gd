@@ -13,8 +13,8 @@ const LEFT_LEG_MAX_RANGE: float = 160.0
 # Parts
 @export_category("Parts Card")
 @export_group("Main Body Cards")
-@export var head_card: CardInfo
-@export var body_card: CardInfo
+@export var head_card: CardInfo = null
+@export var body_card: CardInfo = null
 
 @export_group("Left Leg Cards")
 @export var left_card_1: CardInfo = null
@@ -51,3 +51,33 @@ var head_selected: bool = false
 func load_parts() -> void:
 	pass
 	
+func set_part(area: Area2D, part: Sprite2D, card_info: CardInfo):
+	if area.get_parent() is Card:
+		var card: Card = area.get_parent()
+		var selector: Sprite2D = part.find_child("Selector")
+		selector.hide()
+		#if not card.card_grab:
+		card.critter_part.hide()
+		card.global_position = selector.global_position
+		card_info = card.card_info
+		part.texture = card_info.part_image
+			
+func clear_part(area: Area2D, part: Sprite2D, card_info: CardInfo):
+	if area.get_parent() is Card:
+		var card: Card = area.get_parent()
+		var selector: Sprite2D = part.find_child("Selector")
+		selector.show()
+		if card.card_grab:
+			card.critter_part.show()
+			card_info = null
+			part.texture = null
+
+
+func _on_head_area_entered(area: Area2D) -> void:
+	print(area)
+	if not head_selected:
+		set_part(area, head, head_card)
+
+func _on_head_area_exited(area: Area2D) -> void:
+	if not head_selected:
+		clear_part(area, head, head_card)
