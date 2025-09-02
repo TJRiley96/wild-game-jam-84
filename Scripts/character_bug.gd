@@ -44,10 +44,18 @@ const LEFT_LEG_MAX_RANGE: float = 160.0
 @onready var right_leg_2: Sprite2D = $Parts/RightLeg2
 @onready var right_leg_3: Sprite2D = $Parts/RightLeg3
 
-var body_selected: bool = false
-var legs_selected: bool = false
-var head_selected: bool = false
+var body_selected: bool = false		# Stage 0
+var head_selected: bool = false		# Stage 1
+var legs_selected: bool = false		# Stage 2
 
+var stage_index: int = 0			# Stage 3 means completed bug
+
+func setup_builder() -> void:
+	pass
+
+func create_bug() -> void:
+	pass
+	
 func load_parts() -> void:
 	pass
 	
@@ -71,13 +79,63 @@ func clear_part(area: Area2D, part: Sprite2D, card_info: CardInfo):
 			card.critter_part.show()
 			card_info = null
 			part.texture = null
+func clear_stages() -> void:
+	body_selected = false
+	head_selected = false
+	legs_selected = false
+	stage_index = 1
+	
+func stage_one() -> void:
+	if body_card != null:
+		body_selected = true
+		stage_index += 1
+		
+func stage_two() -> void:
+	if check_stage(2) and head_card != null:
+		head_selected = true
+		stage_index += 1	
+		
+func stage_three() -> void:
+	if check_stage(3):
+		legs_selected = true
+		stage_index += 1
+
+func complete_stage(index: int) -> void:
+	match index:
+		0: clear_stages()
+		1: stage_one()
+		2: stage_two()
+		3: stage_three()
+		_: complete_stage(0)
+		
+func validate_stage() -> void:
+	pass
+	
+func check_stage(index: int) -> bool:
+	match index:
+		0: return(!body_selected and !head_selected and !legs_selected)
+		1: return(body_selected and !head_selected and !legs_selected)
+		2: return(body_selected and head_selected and !legs_selected)
+		3: return(body_selected and head_selected and legs_selected)
+		_: return false
+
+# Stage One	 
+# Body Part Area2D
+func _on_body_area_entered(area: Area2D) -> void:
+	if check_stage(0):
+		set_part(area, body, body_card)
 
 
+func _on_body_area_exited(area: Area2D) -> void:
+	if check_stage(0):
+		clear_part(area, body, body_card)
+
+# Stage Two
+# Head Part Area2D
 func _on_head_area_entered(area: Area2D) -> void:
-	print(area)
-	if not head_selected:
+	if check_stage(1):
 		set_part(area, head, head_card)
 
 func _on_head_area_exited(area: Area2D) -> void:
-	if not head_selected:
+	if check_stage(1):
 		clear_part(area, head, head_card)

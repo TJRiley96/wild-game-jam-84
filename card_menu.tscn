@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://d0ji5uie23cun"]
+[gd_scene load_steps=7 format=4 uid="uid://d0ji5uie23cun"]
 
 [ext_resource type="PackedScene" uid="uid://b4qup25f76h1i" path="res://Scenes/Card/card.tscn" id="1_6tn7u"]
 [ext_resource type="TileSet" uid="uid://dpmindsr0rnpf" path="res://Assets/Tiles/TileSets/batting_center_tile_set.tres" id="1_ed1gj"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://du3cfwf8qrwmp" path="res://Scripts/card_manager.gd" id="2_lhlef"]
 [ext_resource type="PackedScene" uid="uid://67oja4cgb0nu" path="res://Scenes/critter_creator.tscn" id="4_yqe6s"]
 [ext_resource type="Texture2D" uid="uid://blmxjv54moxp8" path="res://Assets/Sprites/Card/Backs/Card_Back.png" id="6_h4xtq"]
-[ext_resource type="PackedScene" uid="uid://j0k5gp61bakf" path="res://Scenes/character_bug.tscn" id="7_h4xtq"]
 
 [node name="CardMenu" type="Control"]
 layout_mode = 3
@@ -62,6 +61,3 @@ texture = ExtResource("6_h4xtq")
 
 [node name="CritterCreator" parent="." instance=ExtResource("4_yqe6s")]
 position = Vector2(573, 207)
-
-[node name="CharacterBug" parent="CritterCreator" instance=ExtResource("7_h4xtq")]
-scale = Vector2(2, 2)
