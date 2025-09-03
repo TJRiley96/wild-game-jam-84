@@ -15,6 +15,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func reset_builder() -> void:
+	critter_builder.complete_stage(0)
 
 func _on_creator_area_entered(area: Area2D) -> void:
 	if area.get_parent() is Card:

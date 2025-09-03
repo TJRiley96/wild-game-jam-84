@@ -59,7 +59,7 @@ func create_bug() -> void:
 func load_parts() -> void:
 	pass
 	
-func set_part(area: Area2D, part: Sprite2D, card_info: CardInfo):
+func set_part(area: Area2D, part: Sprite2D, card_info: CardInfo, type: Constants.CARD_TYPES = Constants.CARD_TYPES.NONE):
 	if area.get_parent() is Card:
 		var card: Card = area.get_parent()
 		var selector: Sprite2D = part.find_child("Selector")
@@ -79,10 +79,23 @@ func clear_part(area: Area2D, part: Sprite2D, card_info: CardInfo):
 			card.critter_part.show()
 			card_info = null
 			part.texture = null
+			
 func clear_stages() -> void:
 	body_selected = false
 	head_selected = false
 	legs_selected = false
+	
+	left_leg_1.hide()
+	left_leg_2.hide()
+	left_leg_3.hide()
+	
+	right_leg_1.hide()
+	right_leg_2.hide()
+	right_leg_3.hide()
+	
+	head.hide()
+	body.show()
+	
 	stage_index = 1
 	
 func stage_one() -> void:

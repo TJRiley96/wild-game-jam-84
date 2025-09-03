@@ -56,6 +56,7 @@ offset = Vector2(0, 16)
 
 [node name="LL1Area" type="Area2D" parent="Parts/LeftLeg1"]
 position = Vector2(0, 32)
+collision_layer = 0
 
 [node name="Selector" type="Sprite2D" parent="Parts/LeftLeg1/LL1Area"]
 scale = Vector2(0.6, 0.6)
@@ -72,6 +73,7 @@ offset = Vector2(0, 16)
 
 [node name="LL2Area" type="Area2D" parent="Parts/LeftLeg2"]
 position = Vector2(0, 32)
+collision_layer = 0
 
 [node name="Selector" type="Sprite2D" parent="Parts/LeftLeg2/LL2Area"]
 scale = Vector2(0.6, 0.6)
@@ -89,6 +91,7 @@ offset = Vector2(0, 16)
 
 [node name="LL3Area" type="Area2D" parent="Parts/LeftLeg3"]
 position = Vector2(0, 32)
+collision_layer = 0
 
 [node name="Selector" type="Sprite2D" parent="Parts/LeftLeg3/LL3Area"]
 scale = Vector2(0.6, 0.6)
@@ -106,6 +109,7 @@ flip_h = true
 
 [node name="RL1Area" type="Area2D" parent="Parts/RightLeg1"]
 position = Vector2(0, 32)
+collision_layer = 0
 
 [node name="Selector" type="Sprite2D" parent="Parts/RightLeg1/RL1Area"]
 scale = Vector2(0.6, 0.6)
@@ -123,6 +127,7 @@ flip_h = true
 
 [node name="RL2Area" type="Area2D" parent="Parts/RightLeg2"]
 position = Vector2(0, 32)
+collision_layer = 0
 
 [node name="Selector" type="Sprite2D" parent="Parts/RightLeg2/RL2Area"]
 scale = Vector2(0.6, 0.6)
@@ -140,6 +145,7 @@ flip_h = true
 
 [node name="RL3Area" type="Area2D" parent="Parts/RightLeg3"]
 position = Vector2(0, 32)
+collision_layer = 0
 
 [node name="Selector" type="Sprite2D" parent="Parts/RightLeg3/RL3Area"]
 scale = Vector2(0.6, 0.6)
