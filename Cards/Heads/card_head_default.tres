@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardInfo" load_steps=3 format=3 uid="uid://i87qd2m3np22"]
+
+[ext_resource type="Texture2D" uid="uid://40tj5kgdkdnn" path="res://Assets/Sprites/Head/bug_head_01.png" id="1_ynnxh"]
+[ext_resource type="Script" uid="uid://dvlwon4usgkm2" path="res://Scripts/Resources/card_info.gd" id="2_5d21x"]
+
+[resource]
+script = ExtResource("2_5d21x")
+card_name = &"Default Head"
+card_type = 3
+part_image = ExtResource("1_ynnxh")
+health = 5
+strength = 0
+speed = 1
+thorns = 0
+armor = 2
+attack_speed = 1
+metadata/_custom_type_script = "uid://dvlwon4usgkm2"

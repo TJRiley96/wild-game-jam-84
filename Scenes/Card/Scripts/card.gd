@@ -19,7 +19,7 @@ var card_grab: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	load_card_info()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,8 +29,15 @@ func _process(delta: float) -> void:
 
 func load_card_info() -> void:
 	print("Load Card")
+	critter_part.scale = Vector2(1,1)
 	critter_part.texture = card_info.part_image
 	critter_part.rotation_degrees = 45
 	
-	part_name.text = card_info.name
+	if card_info.card_type == Constants.CARD_TYPES.BODY:
+		critter_part.scale *= 1
+	if card_info.card_type == Constants.CARD_TYPES.HEAD:
+		critter_part.scale *= 2.5
+	
+	
+	part_name.text = card_info.card_name
 	

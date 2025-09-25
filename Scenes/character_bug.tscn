@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://j0k5gp61bakf"]
+[gd_scene load_steps=7 format=3 uid="uid://j0k5gp61bakf"]
 
 [ext_resource type="Script" uid="uid://kpowjvm0cnu" path="res://Scripts/character_bug.gd" id="1_46hhl"]
 [ext_resource type="Texture2D" uid="uid://ccg45poktdktq" path="res://Assets/Sprites/Leg/bug_leg_01_v1.png" id="2_46hhl"]
@@ -6,10 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bwqhqqnlgxpfk" path="res://Assets/Sprites/Leg/bug_leg_02_v1.png" id="5_jqsrq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hh08e"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ewhml"]
-radius = 15.0
-height = 58.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jqsrq"]
 
@@ -45,7 +41,7 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_ewhml")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Body/BodyArea"]
-shape = SubResource("CapsuleShape2D_ewhml")
+shape = SubResource("CircleShape2D_jqsrq")
 
 [node name="LeftLeg1" type="Sprite2D" parent="Parts"]
 position = Vector2(-16, -16)

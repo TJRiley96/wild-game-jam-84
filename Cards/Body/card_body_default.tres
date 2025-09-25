@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardInfo" load_steps=3 format=3 uid="uid://b21sc0wcw3yqa"]
+
+[ext_resource type="Texture2D" uid="uid://b21yvpeo58j8u" path="res://Assets/Sprites/Body/bug_body_01_v2.png" id="1_treuu"]
+[ext_resource type="Script" uid="uid://dvlwon4usgkm2" path="res://Scripts/Resources/card_info.gd" id="1_xgmgc"]
+
+[resource]
+script = ExtResource("1_xgmgc")
+card_name = &"Default Body"
+card_type = 1
+part_image = ExtResource("1_treuu")
+health = 5
+strength = 0
+speed = 0
+thorns = 0
+armor = 5
+attack_speed = 0
+metadata/_custom_type_script = "uid://dvlwon4usgkm2"

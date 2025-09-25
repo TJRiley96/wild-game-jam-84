@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://d0ji5uie23cun"]
+[gd_scene load_steps=8 format=4 uid="uid://d0ji5uie23cun"]
 
 [ext_resource type="PackedScene" uid="uid://b4qup25f76h1i" path="res://Scenes/Card/card.tscn" id="1_6tn7u"]
 [ext_resource type="TileSet" uid="uid://dpmindsr0rnpf" path="res://Assets/Tiles/TileSets/batting_center_tile_set.tres" id="1_ed1gj"]
 [ext_resource type="FontFile" uid="uid://ciqtt8n860nnr" path="res://Assets/Fonts/PixelifySans-Regular.ttf" id="1_h4xtq"]
 [ext_resource type="Script" uid="uid://du3cfwf8qrwmp" path="res://Scripts/card_manager.gd" id="2_lhlef"]
 [ext_resource type="PackedScene" uid="uid://67oja4cgb0nu" path="res://Scenes/critter_creator.tscn" id="4_yqe6s"]
+[ext_resource type="Resource" uid="uid://b21sc0wcw3yqa" path="res://Cards/Body/card_body_default.tres" id="5_h4xtq"]
 [ext_resource type="Texture2D" uid="uid://blmxjv54moxp8" path="res://Assets/Sprites/Card/Backs/Card_Back.png" id="6_h4xtq"]
 
 [node name="CardMenu" type="Control"]
@@ -37,7 +38,11 @@ position = Vector2(-5, -5)
 script = ExtResource("2_lhlef")
 
 [node name="Card" parent="CardManager" instance=ExtResource("1_6tn7u")]
-position = Vector2(132, 229)
+position = Vector2(130, 229)
+
+[node name="Card2" parent="CardManager" instance=ExtResource("1_6tn7u")]
+position = Vector2(267, 206)
+card_info = ExtResource("5_h4xtq")
 
 [node name="CardRow" type="Node2D" parent="CardManager"]
 

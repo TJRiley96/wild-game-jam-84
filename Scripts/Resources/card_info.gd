@@ -1,10 +1,10 @@
 class_name CardInfo extends Resource
 
 
-@export var name: StringName
+@export var card_name: StringName
 
 @export_category("Card General")
-@export var type: Constants.CARD_TYPES = Constants.CARD_TYPES.NONE
+@export var card_type: Constants.CARD_TYPES = Constants.CARD_TYPES.NONE
 @export var part_image: Texture
 @export var part_scene: PackedScene
 
