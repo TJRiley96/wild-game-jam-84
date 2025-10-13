@@ -9,6 +9,8 @@ const CARD_SLOT_POS_OFFESET: float = 120.0
 
 var card_slots: Array[CardSlot] = []
 
+@export var card_slot_amount: int = 3
+
 @onready var card_row: Node2D = $CardRow
 
 @onready var card_slot_scene: PackedScene = preload("res://Scenes/card_slot.tscn")
@@ -43,9 +45,10 @@ func raycast_card_check():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
-	for i in range(0,6):
+	for i in range(0,card_slot_amount):
 		create_card_slots()
 	pass # Replace with function body.
+	# TODO: Add cards to card slots
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

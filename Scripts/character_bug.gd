@@ -15,6 +15,8 @@ const LEFT_LEG_MAX_RANGE: float = 160.0
 @export_group("Main Body Cards")
 @export var head_card: CardInfo = null
 @export var body_card: CardInfo = null
+var head_card_ref: Card = null
+var body_card_ref: Card = null
 
 @export_group("Left Leg Cards")
 @export var left_card_1: CardInfo = null
@@ -126,6 +128,8 @@ func stage_one() -> void:
 	if check_stage(0) and body_card != null:
 		print("Move to stage 2")
 		body_selected = true
+		# Delete body Card obj
+		#body_card_ref.queue_free()
 		stage_index += 1
 		head.show()
 		
@@ -134,6 +138,8 @@ func stage_two() -> void:
 	if check_stage(1) and head_card != null:
 		head_selected = true
 		stage_index += 1
+		# Delete head Card obj
+		#head_card_ref.queue_free()
 		
 		# Show leg drag points
 		left_leg_1.show()
