@@ -1,16 +1,16 @@
 extends Node
 
 var cards: Dictionary ={
-	'heads': [],
-	'bodies': [],
-	'legs': [],
-	'weapons': [],
+	Constants.CARD_TYPES.HEAD: [],
+	Constants.CARD_TYPES.BODY: [],
+	Constants.CARD_TYPES.LEG: [],
+	Constants.CARD_TYPES.WEAPON: [],
 }
 var card_folder_path: String = "res://Cards/"
 
 func _ready() -> void:
-	cards['heads'] = get_cards_from_folder(card_folder_path+"Heads/")
-	cards['bodies'] = get_cards_from_folder(card_folder_path+"Body/")
+	cards[Constants.CARD_TYPES.HEAD] = get_cards_from_folder(card_folder_path+"Heads/")
+	cards[Constants.CARD_TYPES.BODY] = get_cards_from_folder(card_folder_path+"Body/")
 
 func get_cards_from_folder(path: String) -> Array[CardInfo]:
 	var temp_arr: Array[CardInfo] = []

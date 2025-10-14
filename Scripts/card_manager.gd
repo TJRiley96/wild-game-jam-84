@@ -8,12 +8,16 @@ const starting_card_slot: Vector2 = Vector2(180.0, 540.0)
 const CARD_SLOT_POS_OFFESET: float = 120.0
 
 var card_slots: Array[CardSlot] = []
+var cards: Array[Card] = []
 
 @export var card_slot_amount: int = 3
+@export var cards_amount: int = 2
+@export var card_type: Constants.CARD_TYPES = Constants.CARD_TYPES.BODY
 
 @onready var card_row: Node2D = $CardRow
 
 @onready var card_slot_scene: PackedScene = preload("res://Scenes/card_slot.tscn")
+@onready var card_scene: PackedScene = preload("res://Scenes/Card/card.tscn")
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -47,6 +51,10 @@ func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	for i in range(0,card_slot_amount):
 		create_card_slots()
+	for i in range(cards_amount):
+		get_rand_card(card_type)
+	load_card_slots()
+	
 	pass # Replace with function body.
 	# TODO: Add cards to card slots
 
@@ -61,13 +69,26 @@ func _process(delta: float) -> void:
 
 
 func load_card_slots() -> void:
+	for i in range(len(cards)):
+		cards[i].position = card_slots[i].position
+	
+func get_rand_card(type: Constants.CARD_TYPES):
+	var card_arr: Array[CardInfo] = GlobalCards.cards.get(type)
+	if card_arr:
+		var card_info = card_arr[randi_range(0, len(card_arr)-1)]
+		var temp_card: Card = card_scene.instantiate()
+		temp_card.card_info = card_info
+		card_row.add_child(temp_card, true)
+		cards.append(temp_card)
+		
 	pass
+	
 	
 func create_card_slots() -> void:
 	var new_slot:CardSlot = card_slot_scene.instantiate()
 	new_slot.global_position = starting_card_slot + Vector2(CARD_SLOT_POS_OFFESET*len(card_slots), 0)
 	card_slots.append(new_slot)
-	card_row.add_child(new_slot)
+	card_row.add_child(new_slot, true)
 
 
 	
