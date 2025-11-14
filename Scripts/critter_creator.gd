@@ -9,6 +9,7 @@ func _ready() -> void:
 	critter_builder.stage_index = 0
 	critter_builder.complete_stage(current_stage)
 	current_stage = critter_builder.stage_index
+	Globals.stage_index =  critter_builder.stage_index
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -33,8 +34,8 @@ func set_part() -> void:
 	critter_builder.complete_stage(current_stage)
 	print("Current Stage: ", current_stage, " | Next Stage: ", critter_builder.stage_index)
 	if current_stage != critter_builder.stage_index:
-		
 		current_stage = critter_builder.stage_index
+		Globals.stage_index = critter_builder.stage_index
 	else:
 		print("Invalid part set")
 	

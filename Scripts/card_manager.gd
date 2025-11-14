@@ -10,6 +10,8 @@ const CARD_SLOT_POS_OFFESET: float = 120.0
 var card_slots: Array[CardSlot] = []
 var cards: Array[Card] = []
 
+var current_stage: int = 0
+
 @export var card_slot_amount: int = 3
 @export var cards_amount: int = 2
 @export var card_type: Constants.CARD_TYPES = Constants.CARD_TYPES.BODY
@@ -55,6 +57,8 @@ func _ready() -> void:
 		get_rand_card(card_type)
 	load_card_slots()
 	
+	current_stage = Globals.stage_index
+	
 	pass # Replace with function body.
 	# TODO: Add cards to card slots
 
@@ -65,12 +69,20 @@ func _process(delta: float) -> void:
 		card_being_drag.card_grab = true
 		var mouse_pos = get_global_mouse_position()
 		card_being_drag.global_position = Vector2(clamp(mouse_pos.x, 0+screen_offset, screen_size.x-screen_offset), 
-			clamp(mouse_pos.y, 0+(screen_offset*2), screen_size.y-(screen_offset*2))) 
-
+			clamp(mouse_pos.y, 0+(screen_offset*2), screen_size.y-(screen_offset*2)))
+			
+	if current_stage != Globals.stage_index:
+		clear_cards()
+		current_stage = Globals.stage_index
 
 func load_card_slots() -> void:
 	for i in range(len(cards)):
 		cards[i].position = card_slots[i].position
+		
+func clear_cards() -> void:
+	print("Cards Clears")
+	for card in cards:
+		card.queue_free()
 	
 func get_rand_card(type: Constants.CARD_TYPES):
 	var card_arr: Array[CardInfo] = GlobalCards.cards.get(type)
