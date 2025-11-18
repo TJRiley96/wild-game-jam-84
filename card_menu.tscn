@@ -34,6 +34,7 @@ tile_set = ExtResource("1_ed1gj")
 [node name="CardManager" type="Node2D" parent="."]
 position = Vector2(-5, -5)
 script = ExtResource("2_lhlef")
+card_slot_amount = 8
 
 [node name="CardRow" type="Node2D" parent="CardManager"]
 

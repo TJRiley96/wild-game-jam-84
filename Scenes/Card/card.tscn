@@ -29,7 +29,7 @@ texture = ExtResource("1_g0nif")
 
 [node name="SpritePart" type="Sprite2D" parent="."]
 position = Vector2(0, -11)
-rotation = 0.785398
+rotation = 0.7853982
 texture = ExtResource("3_c0g18")
 
 [node name="PartName" type="Label" parent="."]

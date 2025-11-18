@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardInfo" load_steps=3 format=3 uid="uid://djjgaj5ei20eq"]
+
+[ext_resource type="Script" uid="uid://dvlwon4usgkm2" path="res://Scripts/Resources/card_info.gd" id="1_nr3yo"]
+[ext_resource type="Texture2D" uid="uid://bwqhqqnlgxpfk" path="res://Assets/Sprites/Leg/bug_leg_02_v1.png" id="1_omj2e"]
+
+[resource]
+script = ExtResource("1_nr3yo")
+card_name = &"Ant Leg"
+card_type = 2
+part_image = ExtResource("1_omj2e")
+health = 1
+strength = 5
+speed = 2
+attack_speed = 4
+metadata/_custom_type_script = "uid://dvlwon4usgkm2"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardInfo" load_steps=3 format=3 uid="uid://3fff0vk67ywk"]
+
+[ext_resource type="Texture2D" uid="uid://ccg45poktdktq" path="res://Assets/Sprites/Leg/bug_leg_01_v1.png" id="1_2gary"]
+[ext_resource type="Script" uid="uid://dvlwon4usgkm2" path="res://Scripts/Resources/card_info.gd" id="1_yssfa"]
+
+[resource]
+script = ExtResource("1_yssfa")
+card_name = &"Default Leg"
+card_type = 2
+part_image = ExtResource("1_2gary")
+metadata/_custom_type_script = "uid://dvlwon4usgkm2"
