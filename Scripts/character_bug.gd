@@ -65,10 +65,12 @@ func set_part(area: Area2D, part: Sprite2D, card_info: CardInfo, card_type: Cons
 	if area.get_parent() is Card:
 		var card: Card = area.get_parent()
 		var selector: Sprite2D = part.find_child("Selector")
+		var col: CollisionShape2D = part.find_child("CollisonShape2D")
 		card_info = card.card_info
 		if card_info.card_type == card_type:
 			print("Card Object: ", card.card_info.card_name)
 			selector.hide()
+			col.disabled = true
 			#if not card.card_grab:
 			card.critter_part.hide()
 			card.global_position = selector.global_position
@@ -123,9 +125,9 @@ func clear_stages() -> void:
 	
 	stage_index = 1
 	
-func stage_one() -> void:
-	print("Stage Status: ", check_stage(0), " Part Status: ", (body_card != null))
-	if check_stage(0) and body_card != null:
+func stage_body_complete() -> void:
+	print("Stage Status: ", check_stage(Constants.STAGE.BODY), " Part Status: ", (body_card != null))
+	if check_stage(Constants.STAGE.BODY) and body_card != null:
 		print("Move to stage 2")
 		body_selected = true
 		# Delete body Card obj
@@ -133,9 +135,9 @@ func stage_one() -> void:
 		stage_index += 1
 		head.show()
 		
-func stage_two() -> void:
-	print("Stage Status: ", check_stage(1), " Part Status: ", (head_card != null))
-	if check_stage(1) and head_card != null:
+func stage_head_complete() -> void:
+	print("Stage Status: ", check_stage(Constants.STAGE.HEAD), " Part Status: ", (head_card != null))
+	if check_stage(Constants.STAGE.HEAD) and head_card != null:
 		head_selected = true
 		stage_index += 1
 		# Delete head Card obj
@@ -149,52 +151,110 @@ func stage_two() -> void:
 		right_leg_2.show()
 		right_leg_3.show()
 		
-func stage_three() -> void:
-	if check_stage(3):
+func stage_leg_complete() -> void:
+	if check_stage(Constants.STAGE.LEGS):
 		legs_selected = true
 		stage_index += 1
 
 func complete_stage(index: int) -> void:
 	match index:
 		0: clear_stages()
-		1: stage_one()
-		2: stage_two()
-		3: stage_three()
+		1: stage_body_complete()
+		2: stage_head_complete()
+		3: stage_leg_complete()
 		_: complete_stage(0)
 		
 func validate_stage() -> void:
 	pass
 	
-func check_stage(index: int) -> bool:
+func check_stage(index: Constants.STAGE) -> bool:
 	match index:
-		0: return(!body_selected and !head_selected and !legs_selected)
-		1: return(body_selected and !head_selected and !legs_selected)
-		2: return(body_selected and head_selected and !legs_selected)
-		3: return(body_selected and head_selected and legs_selected)
+		Constants.STAGE.BODY: return(!body_selected and !head_selected and !legs_selected)
+		Constants.STAGE.HEAD: return(body_selected and !head_selected and !legs_selected)
+		Constants.STAGE.LEGS: return(body_selected and head_selected and !legs_selected)
+		Constants.STAGE.WEAPON: return(body_selected and head_selected and legs_selected)
 		_: return false
 
-# Stage One	 
+# Stage Body
 # Body Part Area2D
 func _on_body_area_entered(area: Area2D) -> void:
-	if check_stage(0):
+	if check_stage(Constants.STAGE.BODY):
 		body_card = set_part(area, body, body_card, Constants.CARD_TYPES.BODY)
 		print(body_card)
 
 
 func _on_body_area_exited(area: Area2D) -> void:
-	if check_stage(0):
+	if check_stage(Constants.STAGE.BODY):
 		body_card = clear_part(area, body, body_card)
 
-# Stage Two
+# Stage Head
 # Head Part Area2D
 func _on_head_area_entered(area: Area2D) -> void:
-	if check_stage(1):
+	if check_stage(Constants.STAGE.HEAD):
 		head_card = set_part(area, head, head_card, Constants.CARD_TYPES.HEAD)
 
+
 func _on_head_area_exited(area: Area2D) -> void:
-	if check_stage(1):
+	if check_stage(Constants.STAGE.HEAD):
 		head_card = clear_part(area, head, head_card)
-		
-		
-# Stage Three
+				
+# Stage Leg
 # TODO: Add Leg Logic
+func _on_ll_1_area_entered(area: Area2D) -> void:
+	if check_stage(Constants.STAGE.LEGS):
+		left_card_1 = set_part(area, left_leg_1, left_card_1, Constants.CARD_TYPES.LEG)
+
+
+func _on_ll_1_area_exited(area: Area2D) -> void:
+	if check_stage(Constants.STAGE.LEGS):
+		left_card_1 = clear_part(area, left_leg_1, left_card_1)
+		
+
+func _on_ll_2_area_entered(area: Area2D) -> void:
+	if check_stage(Constants.STAGE.LEGS):
+		left_card_2 = set_part(area, left_leg_2, left_card_2, Constants.CARD_TYPES.LEG)
+
+
+func _on_ll_2_area_exited(area: Area2D) -> void:
+	if check_stage(Constants.STAGE.LEGS):
+		left_card_2 = clear_part(area, left_leg_2, left_card_2)
+		
+		
+func _on_ll_3_area_entered(area: Area2D) -> void:
+	if check_stage(Constants.STAGE.LEGS):
+		left_card_1 = set_part(area, left_leg_3, left_card_3, Constants.CARD_TYPES.LEG)
+
+
+func _on_ll_3_area_exited(area: Area2D) -> void:
+	if check_stage(Constants.STAGE.LEGS):
+		left_card_3 = clear_part(area, left_leg_3, left_card_3)
+		
+		
+func _on_rl_1_area_entered(area: Area2D) -> void:
+	if check_stage(Constants.STAGE.LEGS):
+		right_card_1 = set_part(area, right_leg_1, right_card_1, Constants.CARD_TYPES.LEG)
+
+
+func _on_rl_1_area_exited(area: Area2D) -> void:
+	if check_stage(Constants.STAGE.LEGS):
+		right_card_1 = clear_part(area, right_leg_1, right_card_1)
+		
+
+func _on_rl_2_area_entered(area: Area2D) -> void:
+	if check_stage(Constants.STAGE.LEGS):
+		right_card_2 = set_part(area, right_leg_2, right_card_2, Constants.CARD_TYPES.LEG)
+
+
+func _on_rl_2_area_exited(area: Area2D) -> void:
+	if check_stage(Constants.STAGE.LEGS):
+		right_card_2 = clear_part(area, right_leg_2, right_card_2)
+		
+
+func _on_rl_3_area_entered(area: Area2D) -> void:
+	if check_stage(Constants.STAGE.LEGS):
+		right_card_3 = set_part(area, right_leg_3, right_card_3, Constants.CARD_TYPES.LEG)
+
+
+func _on_rl_3_area_exited(area: Area2D) -> void:
+	if check_stage(Constants.STAGE.LEGS):
+		right_card_3 = clear_part(area, right_leg_3, right_card_3)

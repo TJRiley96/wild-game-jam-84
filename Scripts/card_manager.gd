@@ -28,7 +28,6 @@ var current_stage: int = 0
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.is_pressed():
-			print("Left Pressed")
 			card_being_drag = raycast_card_check()
 			print(card_being_drag)
 		else:
@@ -91,7 +90,7 @@ func clear_cards() -> void:
 	cards.clear()
 	
 func get_rand_card(type: Constants.CARD_TYPES, num_card: int = 0):
-	var card_arr: Array[CardInfo] = GlobalCards.cards.get(type)
+	var card_arr: Array[CardInfo] = GlobalCards.cards.get(type, [])
 	if card_arr:
 		for i in num_card:
 			var card_info = card_arr[randi_range(0, len(card_arr)-1)]

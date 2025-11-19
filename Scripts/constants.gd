@@ -6,5 +6,14 @@ enum CARD_TYPES{
 	LEG,
 	HEAD,
 	WEAPON,
-	ATTACK
+	ATTACK,
 } 
+
+enum STAGE{
+	CLEAR,
+	BODY,
+	HEAD,
+	LEGS,
+	WEAPON,
+	ATTACK,
+}

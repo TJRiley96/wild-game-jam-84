@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://ciqtt8n860nnr" path="res://Assets/Fonts/PixelifySans-Regular.ttf" id="4_c0g18"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0nif"]
-size = Vector2(74, 120)
+size = Vector2(74, 78)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yw1pg"]
 font = ExtResource("4_c0g18")
@@ -20,7 +20,7 @@ script = ExtResource("1_ac5pp")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, 0)
+position = Vector2(1, -21)
 shape = SubResource("RectangleShape2D_g0nif")
 
 [node name="BG" type="Sprite2D" parent="."]

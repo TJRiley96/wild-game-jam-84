@@ -18,10 +18,10 @@ func _process(delta: float) -> void:
 
 
 func _on_card_slot_area_entered(area: Area2D) -> void:
-	print("Card Enter")
+	#print("Card Enter")
 	if area.get_parent() is Card and is_empty:
 		card_obj = area.get_parent()
-		print("Card set")
+		#print("Card set")
 	
 	if area.get_parent() is Card and not is_empty:
 		if area.get_parent() == card_obj:
