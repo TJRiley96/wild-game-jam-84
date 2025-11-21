@@ -6,6 +6,10 @@ class_name Card extends Node2D
 @onready var critter_part: Sprite2D = $SpritePart
 @onready var part_name: Label = $PartName
 
+@onready var not_grab_col: CollisionShape2D = $Area2D/NotGrabCollision
+@onready var grab_col: CollisionShape2D = $Area2D/GrabCollision
+
+
 @export var card_info: CardInfo = preload("res://Scripts/Resources/card_example.tres")
 
 @export var load_file: bool = false: 
@@ -16,15 +20,20 @@ class_name Card extends Node2D
 	
 
 var card_grab: bool = false
+var selected: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	load_card_info()
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if not Engine.is_editor_hint():
+		not_grab_col.disabled = card_grab #or selected
+		grab_col.disabled = !card_grab #or !selected
+	
 
 
 func load_card_info() -> void:

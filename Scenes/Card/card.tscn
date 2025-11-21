@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4qup25f76h1i"]
+[gd_scene load_steps=8 format=3 uid="uid://b4qup25f76h1i"]
 
 [ext_resource type="Script" uid="uid://bwwdfo2gdr4mm" path="res://Scenes/Card/Scripts/card.gd" id="1_ac5pp"]
 [ext_resource type="Texture2D" uid="uid://470ll1olc0lm" path="res://Assets/Sprites/Card/Fronts/Card_Front_01.png" id="1_g0nif"]
@@ -6,7 +6,10 @@
 [ext_resource type="FontFile" uid="uid://ciqtt8n860nnr" path="res://Assets/Fonts/PixelifySans-Regular.ttf" id="4_c0g18"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0nif"]
-size = Vector2(74, 78)
+size = Vector2(83, 133)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c0g18"]
+radius = 28.01785
 
 [sub_resource type="LabelSettings" id="LabelSettings_yw1pg"]
 font = ExtResource("4_c0g18")
@@ -18,12 +21,20 @@ z_index = 2
 script = ExtResource("1_ac5pp")
 
 [node name="Area2D" type="Area2D" parent="."]
+z_index = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, -21)
+[node name="NotGrabCollision" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_g0nif")
 
+[node name="GrabCollision" type="CollisionShape2D" parent="Area2D"]
+z_index = 5
+shape = SubResource("CircleShape2D_c0g18")
+disabled = true
+debug_color = Color(0.99607843, 0.4862745, 0.4862745, 1)
+
 [node name="BG" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(3, 3)
 texture = ExtResource("1_g0nif")
 

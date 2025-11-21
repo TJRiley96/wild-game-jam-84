@@ -65,12 +65,13 @@ func set_part(area: Area2D, part: Sprite2D, card_info: CardInfo, card_type: Cons
 	if area.get_parent() is Card:
 		var card: Card = area.get_parent()
 		var selector: Sprite2D = part.find_child("Selector")
-		var col: CollisionShape2D = part.find_child("CollisonShape2D")
+		var col: CollisionShape2D = part.find_child("CollisionShape2D")
 		card_info = card.card_info
 		if card_info.card_type == card_type:
 			print("Card Object: ", card.card_info.card_name)
 			selector.hide()
-			col.disabled = true
+			col.set_deferred('disabled', true)
+			card.selected = true
 			#if not card.card_grab:
 			card.critter_part.hide()
 			card.global_position = selector.global_position
@@ -86,6 +87,7 @@ func clear_part(area: Area2D, part: Sprite2D, card_info: CardInfo):
 		selector.show()
 		if card.card_grab:
 			card.critter_part.show()
+			card.selected = false
 			card_info = null
 			part.texture = null
 			return null
