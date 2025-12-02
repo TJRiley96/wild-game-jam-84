@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cyqs683wreli8"]
 
-[ext_resource type="Script" uid="uid://b0fpjcjlki2gu" path="res://Scenes/PlayerController/Scripts/player_controllerr.gd" id="1_nxacg"]
+[ext_resource type="Script" uid="uid://b0fpjcjlki2gu" path="res://Scenes/PlayerController/Scripts/player_bug.gd" id="1_nxacg"]
 [ext_resource type="Texture2D" uid="uid://40tj5kgdkdnn" path="res://Assets/Sprites/Head/bug_head_01.png" id="2_8wupt"]
 [ext_resource type="Texture2D" uid="uid://b21yvpeo58j8u" path="res://Assets/Sprites/Body/bug_body_01_v2.png" id="3_goh0s"]
 [ext_resource type="Texture2D" uid="uid://bwqhqqnlgxpfk" path="res://Assets/Sprites/Leg/bug_leg_02_v1.png" id="4_8wupt"]
@@ -12,8 +12,13 @@ height = 70.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_nxacg")
+speed = null
+rotation_max_top = 155.0
+rotation_min_top = 115.0
+rotation_leg_offset = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 z_index = 2
 position = Vector2(0, -3)
 shape = SubResource("CapsuleShape2D_iydb2")
@@ -32,39 +37,45 @@ texture = ExtResource("3_goh0s")
 
 [node name="LeftLeg1" type="Sprite2D" parent="Parts"]
 position = Vector2(-16, -16)
-rotation = 1.5708
+rotation = 2.6179938
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_8wupt")
 offset = Vector2(0, 16)
 
 [node name="LeftLeg2" type="Sprite2D" parent="Parts"]
 position = Vector2(-16, 0)
-rotation = 1.5708
+rotation = 1.8151424
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_18sh1")
 offset = Vector2(0, 16)
 
 [node name="LeftLeg3" type="Sprite2D" parent="Parts"]
 position = Vector2(-12, 16)
-rotation = 1.5708
+rotation = 0.715585
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_8wupt")
 offset = Vector2(0, 16)
 
 [node name="RightLeg1" type="Sprite2D" parent="Parts"]
 position = Vector2(16, -16)
-rotation = -1.5708
+rotation = -2.35619
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_18sh1")
 offset = Vector2(0, 16)
 flip_h = true
 
 [node name="RightLeg2" type="Sprite2D" parent="Parts"]
 position = Vector2(16, 0)
-rotation = -1.5708
+rotation = -1.9024088
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_8wupt")
 offset = Vector2(0, 16)
 flip_h = true
 
 [node name="RightLeg3" type="Sprite2D" parent="Parts"]
 position = Vector2(12, 16)
-rotation = -1.5708
+rotation = -1.134464
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_8wupt")
 offset = Vector2(0, 16)
 flip_h = true

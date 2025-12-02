@@ -45,6 +45,7 @@ func raycast_card_check():
 	if result:
 		var body = result[0].collider.get_parent()
 		if body.is_in_group('Card'):
+			body.card_grab = true
 			return body
 			
 	return null
@@ -67,10 +68,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if card_being_drag:
-		card_being_drag.card_grab = true
-		var mouse_pos = get_global_mouse_position()
-		card_being_drag.global_position = Vector2(clamp(mouse_pos.x, 0+screen_offset, screen_size.x-screen_offset), 
-			clamp(mouse_pos.y, 0+(screen_offset*2), screen_size.y-(screen_offset*2)))
+		#card_being_drag.card_grab = true
+		if card_being_drag.card_grab:
+			var mouse_pos = get_global_mouse_position()
+			card_being_drag.global_position = Vector2(clamp(mouse_pos.x, 0+screen_offset, screen_size.x-screen_offset), 
+				clamp(mouse_pos.y, 0+(screen_offset*2), screen_size.y-(screen_offset*2)))
 			
 	if current_stage != Globals.stage_index:
 		clear_cards()

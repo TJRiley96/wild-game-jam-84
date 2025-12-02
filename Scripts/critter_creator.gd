@@ -22,13 +22,17 @@ func reset_builder() -> void:
 func _on_creator_area_entered(area: Area2D) -> void:
 	if area.get_parent() is Card:
 		var card: Card = area.get_parent()
+		# print("Enter: " + str(card.name))
 		card.card_bg.hide()
+		card.selected = true
 
 
 func _on_creator_area_exited(area: Area2D) -> void:
 	if area.get_parent() is Card:
 		var card: Card = area.get_parent()
+		# print("Exit: " + str(card.name))
 		card.card_bg.show()
+		card.selected = false
 
 func set_part() -> void:
 	critter_builder.complete_stage(current_stage)

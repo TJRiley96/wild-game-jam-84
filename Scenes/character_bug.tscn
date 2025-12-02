@@ -8,9 +8,36 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_hh08e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jqsrq"]
+radius = 7.5
 
 [node name="CharacterBug" type="Node2D"]
 script = ExtResource("1_46hhl")
+data_set = {
+"card": {
+"body": null,
+"head": null,
+"left_leg_1": null,
+"left_leg_2": null,
+"left_leg_3": null,
+"right_leg_1": null,
+"right_leg_2": null,
+"right_leg_3": null,
+"special": null,
+"weapon": null
+},
+"card_info": {
+"body": null,
+"head": null,
+"left_leg_1": null,
+"left_leg_2": null,
+"left_leg_3": null,
+"right_leg_1": null,
+"right_leg_2": null,
+"right_leg_3": null,
+"special": null,
+"weapon": null
+}
+}
 
 [node name="Parts" type="Node2D" parent="."]
 

@@ -6,7 +6,7 @@ class_name Card extends Node2D
 @onready var critter_part: Sprite2D = $SpritePart
 @onready var part_name: Label = $PartName
 
-@onready var not_grab_col: CollisionShape2D = $Area2D/NotGrabCollision
+@onready var card_col: CollisionShape2D = $Area2D/CardCollision
 @onready var grab_col: CollisionShape2D = $Area2D/GrabCollision
 
 
@@ -31,8 +31,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if not Engine.is_editor_hint():
-		not_grab_col.disabled = card_grab #or selected
-		grab_col.disabled = !card_grab #or !selected
+		var check: bool =  (selected or card_grab)
+		card_col.disabled = check
+	pass
 	
 
 
